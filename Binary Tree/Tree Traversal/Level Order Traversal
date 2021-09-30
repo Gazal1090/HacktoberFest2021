@@ -1,1 +1,62 @@
+/* C++ program to print level order traversal*/
 
+#include <bits/stdc++.h>
+using namespace std;
+ 
+// A Binary Tree Node has key value, left child and right child
+struct Node
+{
+    int key;
+    struct Node *left, *right;
+};
+ 
+
+void printLevelOrder(Node *root)
+{
+    // Base Case
+    if (root == NULL)  return;
+ 
+    // Create an empty queue
+    queue<Node *> q;
+    q.push(root);
+ 
+    while (q.empty() == false)
+    {
+        // Print front of queue and remove it from queue
+        Node *node = q.front();
+        cout << node->key << " ";
+        q.pop();
+ 
+        /* Enqueue left child if present*/
+        if (node->left != NULL)
+            q.push(node->left);
+ 
+        /*Enqueue right child if present*/
+        if (node->right != NULL)
+            q.push(node->right);
+    }
+}
+ 
+// function to create a new tree node
+Node* newNode(int value)
+{
+    Node *temp = new Node;
+    temp->key = value;
+    temp->left = temp->right = NULL;
+    return temp;
+}
+ 
+
+int main()
+{
+    // A random Binary Tree
+    Node *root = newNode(1);
+    root->left = newNode(2);
+    root->right = newNode(3);
+    root->left->left = newNode(4);
+    root->left->right = newNode(5);
+ 
+    cout << "Level Order traversal of binary tree is \n";
+    printLevelOrder(root);
+    return 0;
+}
