@@ -14,19 +14,19 @@ struct Node {
     }
 };
  
-void printPreorder(struct Node* node)
+void printInorder(struct Node* node)
 {
     if (node == NULL)
         return;
  
     /* first move on left subtree */
-    printPreorder(node->left);
+    printInorder(node->left);
     
     /* then print data of node */
     cout << node->key << " ";
  
     /* now move on right subtree */
-    printPreorder(node->right);
+    printInorder(node->right);
 }
 
 int main()
@@ -38,7 +38,7 @@ int main()
     root->left->right = new Node(5);
  
     cout << "\nInorder traversal of binary tree is\n";
-    printPreorder(root);
+    printInorder(root);
  
     return 0;
 }
