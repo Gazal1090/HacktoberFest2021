@@ -33,9 +33,7 @@ void printPreorder(struct Node* node)
 
 int main()
 {
-    
-    cout<< "Enter level order traversal of tree";
-    
+   
     struct Node* root = new Node(1);
     root->left = new Node(2);
     root->right = new Node(3);
