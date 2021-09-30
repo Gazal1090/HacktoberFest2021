@@ -1,0 +1,46 @@
+// C++ program for postorder tree traversals
+#include <iostream>
+using namespace std;
+ 
+/* A binary tree node has key, pointer to left child
+and a pointer to right child */
+struct Node {
+    int key;
+    struct Node *left, *right;
+    Node(int value)
+    {
+        this->key = value;
+        left = right = NULL;
+    }
+};
+ 
+/* Given a binary tree, print its nodes in preorder*/
+void printPreorder(struct Node* node)
+{
+    if (node == NULL)
+        return;
+ 
+    /* first move on left subtree */
+    printPreorder(node->left);
+ 
+    /* then move on right subtree */
+    printPreorder(node->right);
+    
+    /* now print data of node */
+    cout << node->key << " ";
+}
+
+int main()
+{
+ 
+    struct Node* root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+ 
+    cout << "\nPostorder traversal of binary tree is \n";
+    printPreorder(root);
+ 
+    return 0;
+}
