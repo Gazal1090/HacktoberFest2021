@@ -14,7 +14,6 @@ struct Node {
     }
 };
  
-/* Given a binary tree, print its nodes in preorder*/
 void printPreorder(struct Node* node)
 {
     if (node == NULL)
