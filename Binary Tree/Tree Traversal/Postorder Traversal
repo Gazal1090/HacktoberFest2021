@@ -14,17 +14,16 @@ struct Node {
     }
 };
  
-/* Given a binary tree, print its nodes in preorder*/
-void printPreorder(struct Node* node)
+void printPostorder(struct Node* node)
 {
     if (node == NULL)
         return;
  
     /* first move on left subtree */
-    printPreorder(node->left);
+    printPostorder(node->left);
  
     /* then move on right subtree */
-    printPreorder(node->right);
+    printPostorder(node->right);
     
     /* now print data of node */
     cout << node->key << " ";
@@ -40,7 +39,7 @@ int main()
     root->left->right = new Node(5);
  
     cout << "\nPostorder traversal of binary tree is \n";
-    printPreorder(root);
+    printPostorder(root);
  
     return 0;
 }
